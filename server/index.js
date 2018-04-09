@@ -22,6 +22,7 @@ app.get('/fakeMessage', function(req, res)
 
 app.get('/realMessage', function(req, res)
 {
+	console.log("got request");
 	answerChoice(realParams, function (answer){
 		res.send('<p>'+answer+'</p>');
 	});
