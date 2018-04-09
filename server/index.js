@@ -8,6 +8,7 @@ var Http = require('http');
 //intialize server
 var app = express();
 var server = Http.createServer(app);
+app.use(express.static('client'));
 
 server.listen(port, function () {  // Starts server with our modfied port settings
 });
@@ -25,6 +26,10 @@ app.get('/realMessage', function(req, res)
 		res.send('<p>'+answer+'</p>');
 	});
 })
+app.all('/',function(req,res)
+{
+	res.sendFile(path.join(__dirname, '../client', 'index.html'));
+});
 
 var client = new Twitter(
 	{
