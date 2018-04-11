@@ -1,14 +1,17 @@
+
 $('.well').mouseenter(function () {
-    $(this).css('background-color', '#ADDFFF');
+    $(this).css('background-color', '#d6efff');
 });
 $('.well').mouseleave(function () {
     $(this).css('background-color', 'white');
 });
+
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
+
 var coinFlip = getRandomIntInclusive(0, 1);
 if (coinFlip == 1) {
     console.log("yike");
@@ -31,8 +34,7 @@ if (coinFlip == 1) {
             alert("error");
         })
     $('#rightSide').click(function () {
-        alert('Wrong!');
-        location.reload();
+        $("#endGameModal").modal({show: true});
     });
     $('#leftSide').click(function () {
         alert('Right!');
@@ -60,8 +62,7 @@ else {
             alert("error");
         })
     $('#leftSide').click(function () {
-        alert('Wrong!');
-        location.reload();
+        $("#endGameModal").modal({show: true});
     });
     $('#rightSide').click(function () {
         alert('Right!');
