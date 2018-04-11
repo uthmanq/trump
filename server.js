@@ -47,9 +47,11 @@ app.get('/realMessage', function(req, res)
 	});
 	
 })
+
+app.use("/client", express.static(__dirname + '/client'));
 app.all('/',function(req,res)
 {
-	res.sendFile(path.join(__dirname, '../client', 'index.html'));
+	res.sendFile(path.join(__dirname, '/client', 'index.html'));
 });
 
 
