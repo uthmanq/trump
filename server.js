@@ -15,7 +15,7 @@ app.use(express.static('client'));
 server.listen(port, function () {  // Starts server with our modfied port settings
 });
 
-app.get('/fakeMessage', function(req, res)
+app.get('/Message', function(req, res)
 {	
 	
 		var content = fs.readFileSync("seriousTweets.json");
@@ -30,23 +30,18 @@ app.get('/fakeMessage', function(req, res)
 			newText += fullText;
 		}
 		console.log(fullText.lastIndexOf("https:"));
-		res.send(newText);
-		console.log("this is the text:" + newText + "End");
-	});
 
-app.get('/realMessage', function(req, res)
-{
-	console.log("got request");
+		const url = 'https://api.tronalddump.io/random/quote';
+		request(url, function (error, response, body) {
+		var json = JSON.parse(body);
+		var value = json.value;
+		var id = json.quote_id
 
-	const url = 'https://api.tronalddump.io/random/quote';
-	request(url, function (error, response, body) {
-	var json = JSON.parse(body);
-	var value = json.value;
-	var id = json.quote_id
-	res.send(value);
-	});
-	
-})
+		res.send(JSON.stringify({right : newText, wrong : value}));
+		//someone needs to fix these variable names LOL
+	});});
+
+
 
 app.use("/client", express.static(__dirname + '/client'));
 app.all('/',function(req,res)
