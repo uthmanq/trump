@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,68 +11,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            padding: 4%;
-        }
-
-        #startGame {
-            align-content: center;
-            margin: auto;
-            display: block;
-        }
-
-        .modal-content {
-            text-align: center;
-        }
-
-        .well {
-
-            font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
-            font-size: 16px;
-            font-weight: normal;
-            line-height: 20px;
-            border-color: #eee #ddd #bbb;
-            border-radius: 5px;
-            border-style: solid;
-            border-width: 1px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-
-            background-color: white;
-        }
-
-        .modal {
-            top: 30% !important;
-        }
-    </style>
+    <link rel="stylesheet" href="/client/styles.css">
     <title>Trump vs. Drumpf</title>
-    <div class="container" id="banner">
-        <div class="jumbotron">
-            <h1 class="text-center">Trump vs Drumpf!</h1>
-            <p class="text-center">Can you tell The Donald's real tweets from his fake tweets?</p>
-        </div>
-    </div>
 </head>
 
-<body>
+<div class="jumbotron background-image">
+    <div class="container"></div>
+</div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="well well-sm" id="leftSide">
-                <img class="img-responsive wellImage" src="/client/trumpHeader.PNG" alt="Chania">
-                <p id="tweetA">One tweet</p>
-                <br>
+<body>
+    <h5 class="text-center">You have 1 minute to pick as many real Trump tweets as possible.</h5>
+    <h2 class="text-center" id="time"></h2>
+    <div class="wrapper container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well well-sm" id="leftSide">
+                    <img class="img-responsive wellImage" src="/client/trumpHeader.PNG" alt="Chania">
+                    <p id="tweetA">One tweet</p>
+                    <br>
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="well well-sm wellImage" id="rightSide">
-                <img class="img-responsive" src="/client/trumpHeader.PNG" alt="Chania">
-                <p id="tweetB">Another tweet</p>
-                <br>
+            <div class="col-md-6">
+                <div class="well well-sm wellImage" id="rightSide">
+                    <img class="img-responsive" src="/client/trumpHeader.PNG" alt="Chania">
+                    <p id="tweetB">Another tweet</p>
+                    <br>
+                </div>
             </div>
         </div>
     </div>
-    <h1> <button role="button" id="startGame" class="btn btn-primary" title="Popover title">Start</button></h1>
+    <h1>
+        <button role="button" id="startGame" class="btn btn-primary" title="Popover title">Start</button>
+    </h1>
 
 
 </body>
@@ -89,7 +59,7 @@
             </div>
             <div class="modal-footer text-center">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary">Try Again</button>
             </div>
         </div>
     </div>

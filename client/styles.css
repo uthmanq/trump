@@ -1,0 +1,42 @@
+
+#startGame {
+    align-content: center;
+    margin: auto;
+    display: block;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.well {
+
+    font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    border-color: #eee #ddd #bbb;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+
+    background-color: white;
+}
+
+.modal {
+    top: 30% !important;
+}
+
+.background-image {
+    background-image: url("/client/trumpBanner.png");
+    background-size: cover;
+    padding-top: 13%;
+    padding-bottom: 13%;
+    width: 100%;
+    margin: 0 !important;
+}
+.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }

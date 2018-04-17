@@ -46,36 +46,6 @@ $('#leftSide').click(function () {
         $("#endGameModal").modal({ show: true });
     }
 });
-//     }
-//     else {
-//         console.log("yike");
-//         var tweetB = $.get("/realMessage", function (data) {
-//         })
-//             .done(function (data) {
-
-//                 $('#tweetB').text(data);
-//             })
-//             .fail(function () {
-//                 alert("error");
-//             })
-//         var tweetA = $.get("/fakeMessage", function (data) {
-//         })
-//             .done(function (data) {
-
-//                 $('#tweetA').text(data);
-//             })
-//             .fail(function () {
-//                 alert("error");
-//             })
-//         $('#leftSide').click(function () {
-//             $("#endGameModal").modal({ show: true });
-//         });
-//         $('#rightSide').click(function () {
-//             alert('Right!');
-//             Document.dispatchEvent(correctAnswerEvent);
-//         });
-//     }
-// }
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
