@@ -9,6 +9,13 @@
     text-align: center;
 }
 
+#startGame{
+    font: "Helvetica Neue";
+    border-radius: 500px;
+    background-color: #49aae6;
+    border-color: #49aae6;
+}
+
 .well {
 
     font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;

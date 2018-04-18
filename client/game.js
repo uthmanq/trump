@@ -1,4 +1,5 @@
 var rightIsReal;
+var gameOn = false;
 function getInformation() {
     $.get("/Message", function (data) {
     })
@@ -26,9 +27,9 @@ function refreshScreen(answerChoice) {
         rightIsReal = false;
     }
 }
-getInformation();
 
 $('#rightSide').click(function () {
+    if(gameOn){
     if (rightIsReal) {
         console.log("RIGHT");
         getInformation();
@@ -36,8 +37,10 @@ $('#rightSide').click(function () {
     else {
         $("#endGameModal").modal({ show: true });
     }
+}
 });
 $('#leftSide').click(function () {
+    if(gameOn){
     if (!rightIsReal) {
         alert('right');
         getInformation();
@@ -45,9 +48,13 @@ $('#leftSide').click(function () {
     else {
         $("#endGameModal").modal({ show: true });
     }
+}
 });
 
-function startTimer(duration, display) {
+
+function startGame(duration, display) {
+    getInformation();
+    gameOn=true;
     var timer = duration, minutes, seconds;
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
@@ -57,19 +64,24 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.text(minutes + ":" + seconds);
-
+        if (timer == 0)
+        {
+            $("#endGameModal").modal({ show: true });
+        }
         if (--timer < 0) {
             timer = duration;
         }
     }, 1000);
 }
 
-jQuery(function ($) {
-    var fiveMinutes = 60 * 5,
+//Entrypoint
+$('#startGame').click(function () {
+    var oneMinute = 60 * 1,
         display = $('#time');
-    startTimer(fiveMinutes, display);
+    startGame(oneMinute, display);
 });
 
+//Tool to get random number
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
