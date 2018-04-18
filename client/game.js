@@ -1,5 +1,16 @@
 var rightIsReal;
 var gameOn = false;
+var timerInterval;
+var gameScore = 0;
+
+//Entrypoint
+$('#startGame').click(function () {
+    var oneMinute = 60 * 1,
+        display = $('#time');
+    startGame(oneMinute, display);
+});
+
+//Queries server to get randoms
 function getInformation() {
     $.get("/Message", function (data) {
     })
@@ -7,6 +18,7 @@ function getInformation() {
             console.log(typeof (data));
             var x = JSON.parse(data);
             console.log(typeof (x));
+            //Paints screen
             refreshScreen(x)
         })
         .fail(function (error) {
@@ -14,6 +26,7 @@ function getInformation() {
         })
 }
 
+//After getting /Message, randomizes which side gets the real tweet
 function refreshScreen(answerChoice) {
     var coinFlip = getRandomIntInclusive(0, 1);
     if (coinFlip == 1) {
@@ -29,10 +42,11 @@ function refreshScreen(answerChoice) {
 }
 
 $('#rightSide').click(function () {
+    //If statement checks if the game is being played at the moment
     if(gameOn){
     if (rightIsReal) {
-        console.log("RIGHT");
         getInformation();
+        addPoint();
     }
     else {
         $("#endGameModal").modal({ show: true });
@@ -40,10 +54,11 @@ $('#rightSide').click(function () {
 }
 });
 $('#leftSide').click(function () {
+    //If statement checks if the game is being played at the moment
     if(gameOn){
     if (!rightIsReal) {
-        alert('right');
         getInformation();
+        addPoint();
     }
     else {
         $("#endGameModal").modal({ show: true });
@@ -51,12 +66,17 @@ $('#leftSide').click(function () {
 }
 });
 
-
+//Sets timer, clears past timer, and begins the levels
 function startGame(duration, display) {
+    //Begins levels
     getInformation();
+    //resets timer
+    clearInterval(timerInterval);
+    //turns game on
     gameOn=true;
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+        //Magic timer code
+        timerInterval = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -67,6 +87,7 @@ function startGame(duration, display) {
         if (timer == 0)
         {
             $("#endGameModal").modal({ show: true });
+            clearInterval(timerInterval);
         }
         if (--timer < 0) {
             timer = duration;
@@ -74,12 +95,10 @@ function startGame(duration, display) {
     }, 1000);
 }
 
-//Entrypoint
-$('#startGame').click(function () {
-    var oneMinute = 60 * 1,
-        display = $('#time');
-    startGame(oneMinute, display);
-});
+function addPoint (){
+    gameScore++;
+    $('.score').text(gameScore);
+}
 
 //Tool to get random number
 function getRandomIntInclusive(min, max) {

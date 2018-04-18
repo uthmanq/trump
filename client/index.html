@@ -12,6 +12,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/client/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <title>Trump vs. Drumpf</title>
 </head>
@@ -21,7 +22,7 @@
 </div>
 
 <body>
-    <div class="wrapper container">
+    <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <h2 class="text-center" id="time">1:00
@@ -30,10 +31,12 @@
             </div>
             <div class="col-md-4">
                 <br>
-                <button type="button" id="startGame" class="btn btn-primary btn-lg" title="Start Quiz!"><b>play game</b></button>
+                <button type="button" id="startGame" class="btn btn-primary btn-lg" title="Start Quiz!">
+                    <b>Play Game</b>
+                </button>
             </div>
             <div class="col-md-4">
-                <h2 class="text-center" id="score">0
+                <h2 class="text-center score" id="frontScore">0
                 </h2>
                 <h6 class="text-center">Score</h6>
             </div>
@@ -44,14 +47,14 @@
             <div class="col-md-6">
                 <div class="well well-sm" id="leftSide">
                     <img class="img-responsive wellImage" src="/client/trumpHeader.PNG" alt="Chania">
-                    <p id="tweetA">One tweet</p>
+                    <p id="tweetA">Pick as many of my real tweets as you can in a minute!</p>
                     <br>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="well well-sm wellImage" id="rightSide">
                     <img class="img-responsive" src="/client/trumpHeader.PNG" alt="Chania">
-                    <p id="tweetB">Another tweet</p>
+                    <p id="tweetB">If you pick the wrong tweet, you LOSE. #MAGA</p>
                     <br>
                 </div>
             </div>
@@ -66,15 +69,28 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title" id="exampleModalLongTitle">Game Over!</h3>
-
-                </button>
             </div>
             <div class="modal-body">
-                ...
+                <div class="text-center">
+                    <h6 class="text-center">You scored</h6>
+                    <h1 class="score" style="font-size: 650%">0</h1>
+                    <h6 class="text-center">Real Trump tweets</h6>
+                    <button type="button" id="startGame" class="btn btn-primary btn-lg" title="Start Quiz!">
+                        <b>try again</b>
+                        <span class="glyphicon glyphicon-refresh"></span>
+                    </button>
+                </div>
             </div>
-            <div class="modal-footer text-center">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Try Again</button>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-6 align-middle">
+                       <h4>Invite your friends</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
