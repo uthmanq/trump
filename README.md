@@ -11,10 +11,10 @@ Built using Node.js HTML CSS and Bootstrap
 ![Environment](https://i.imgur.com/vsmcCWd.png)
 
 ## Authors
- **Uthman Qureshi** - * principal programmer ( Node.js + front end )
 
+ **Uthman Qureshi** - principal programmer ( Node.js + front end )
 
- **Ridhwaan Anayetullah** - * Initial R&D
+ **Ridhwaan Anayetullah** - Initial R&D
 
 
 
