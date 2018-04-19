@@ -1,3 +1,20 @@
-## Trump Game
+# Trumpf vs. Drumpf
 
-Can you tell which tweet is fake?
+In a time where truth is hard to tell from reality, can you tell the real Trump twees from the fake ones?
+
+## Overview
+
+Built using Node.js HTML CSS and Bootstrap
+
+## Gallery
+
+![alt text](https://imgur.com/vsmcCWd)
+
+
+## Authors
+ ** Uthman Qureshi** - * principal programmer ( Node.js + front end )
+ **Ridhwaan Anayetullah** - * Initial R&D
+
+
+
+
