@@ -10,6 +10,14 @@ $('#startGame').click(function () {
     startGame(oneMinute, display);
 });
 
+$('#restartGame').click(function () {
+    var oneMinute = 60 * 1,
+        display = $('#time');
+    startGame(oneMinute, display);
+    $('#endGameModal').modal('hide');
+});
+
+
 //Queries server to get randoms
 function getInformation() {
     $.get("/Message", function (data) {
@@ -43,40 +51,48 @@ function refreshScreen(answerChoice) {
 
 $('#rightSide').click(function () {
     //If statement checks if the game is being played at the moment
-    if(gameOn){
-    if (rightIsReal) {
-        getInformation();
-        addPoint();
+    if (gameOn) {
+        if (rightIsReal) {
+            getInformation();
+            addPoint();
+        }
+        else {
+            endGame("Game Over!");
+        }
     }
-    else {
-        $("#endGameModal").modal({ show: true });
-    }
-}
 });
 $('#leftSide').click(function () {
     //If statement checks if the game is being played at the moment
-    if(gameOn){
-    if (!rightIsReal) {
-        getInformation();
-        addPoint();
+    if (gameOn) {
+        if (!rightIsReal) {
+            getInformation();
+            addPoint();
+        }
+        else {
+            endGame("Game Over!");
+        }
     }
-    else {
-        $("#endGameModal").modal({ show: true });
+});
+
+$("#endGameModal").on("hidden.bs.modal", function () {
+    if(!gameOn)
+    {        location.reload();
     }
-}
 });
 
 //Sets timer, clears past timer, and begins the levels
 function startGame(duration, display) {
+    gameScore = 0;
+    $('.score').text(gameScore);
     //Begins levels
     getInformation();
     //resets timer
     clearInterval(timerInterval);
     //turns game on
-    gameOn=true;
+    gameOn = true;
     var timer = duration, minutes, seconds;
-        //Magic timer code
-        timerInterval = setInterval(function () {
+    //Magic timer code
+    timerInterval = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -84,10 +100,8 @@ function startGame(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.text(minutes + ":" + seconds);
-        if (timer == 0)
-        {
-            $("#endGameModal").modal({ show: true });
-            clearInterval(timerInterval);
+        if (timer == 0) {
+            endGame("Time's up!");
         }
         if (--timer < 0) {
             timer = duration;
@@ -95,9 +109,16 @@ function startGame(duration, display) {
     }, 1000);
 }
 
-function addPoint (){
+function addPoint() {
     gameScore++;
     $('.score').text(gameScore);
+}
+
+function endGame(endType) {
+    $('#modalTitle').text(endType);
+    gameOn = false;
+    $("#endGameModal").modal({ show: true });
+    clearInterval(timerInterval);
 }
 
 //Tool to get random number

@@ -16,6 +16,13 @@
     border-color: #49aae6;
 }
 
+#restartGame{
+    font: "Helvetica Neue";
+    border-radius: 500px;
+    background-color: #49aae6;
+    border-color: #49aae6;
+}
+
 .well {
 
     font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
@@ -33,10 +40,16 @@
 
 .modal-dialog {
     top: 25% !important;
-    width: 20%;
+    width: 435px;
     margin: auto;
 }
-
+@media(max-width:480px){
+    .modal-dialog {
+        top: 15% !important;
+        width: 300px;
+        margin: auto;
+    }
+}
 .background-image {
     background-image: url("/client/trumpBanner.png");
     background-size: cover;
@@ -77,10 +90,7 @@
     color: white;
 }
 
-.fa-restart {
-    background: #3B5998;
+.fa-google {
+    background: #dd4b39;
     color: white;
-    background-image: url('/client/restart.png');
-    background-size: cover;
-
-}
+  }
