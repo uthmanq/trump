@@ -8,7 +8,7 @@ Built using Node.js HTML CSS and Bootstrap
 
 ## Gallery
 
-![alt text](https://imgur.com/vsmcCWd)
+![picture](gameimageone.png)
 
 
 ## Authors
