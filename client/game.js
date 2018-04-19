@@ -3,6 +3,16 @@ var gameOn = false;
 var timerInterval;
 var gameScore = 0;
 
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '1650642725023239',
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v2.12'
+    });
+};
+
+
 //Entrypoint
 $('#startGame').click(function () {
     var oneMinute = 60 * 1,
@@ -75,8 +85,8 @@ $('#leftSide').click(function () {
 });
 
 $("#endGameModal").on("hidden.bs.modal", function () {
-    if(!gameOn)
-    {        location.reload();
+    if (!gameOn) {
+        location.reload();
     }
 });
 
@@ -128,3 +138,4 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
 
+exports.gameScore = gameScore;

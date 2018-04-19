@@ -5,10 +5,14 @@ var express = require('express');
 var path = require('path');
 var Http = require('http');
 var fs = require('fs');
+var compression = require('compression');
+var helmet = require('helmet');
 
 //intialize server
 var app = express();
 var server = Http.createServer(app);
+app.use(compression());
+app.use(helmet());
 app.use(express.static('client'));
 
 
@@ -29,7 +33,6 @@ app.get('/Message', function(req, res)
 		} else{
 			newText += fullText;
 		}
-		console.log(fullText.lastIndexOf("https:"));
 
 		const url = 'https://api.tronalddump.io/random/quote';
 		request(url, function (error, response, body) {
