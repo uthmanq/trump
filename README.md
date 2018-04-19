@@ -8,8 +8,7 @@ Built using Node.js HTML CSS and Bootstrap
 
 ## Gallery
 
-![picture](gameimageone.png)
-
+![Environment](https://i.imgur.com/vsmcCWd.png)
 
 ## Authors
  ** Uthman Qureshi** - * principal programmer ( Node.js + front end )
