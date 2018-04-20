@@ -1,4 +1,4 @@
-# Trumpf vs Drumpf.
+# Trump vs Drumpf.
 
 In a time where truth is hard to tell from reality, can you tell the real Trump tweets from the fake ones?
 

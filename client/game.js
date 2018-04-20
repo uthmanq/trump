@@ -3,6 +3,7 @@ var gameOn = false;
 var timerInterval;
 var gameScore = 0;
 
+
 //Entrypoint
 $('#startGame').click(function () {
     var oneMinute = 60 * 1,
