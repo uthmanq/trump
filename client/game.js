@@ -17,6 +17,7 @@ window.fbAsyncInit = function () {
 $('#startGame').click(function () {
     var oneMinute = 60 * 1,
         display = $('#time');
+    $('#startGameText').text("Restart");
     startGame(oneMinute, display);
 });
 
