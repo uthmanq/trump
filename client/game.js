@@ -3,16 +3,6 @@ var gameOn = false;
 var timerInterval;
 var gameScore = 0;
 
-window.fbAsyncInit = function () {
-    FB.init({
-        appId: '1650642725023239',
-        autoLogAppEvents: true,
-        xfbml: true,
-        version: 'v2.12'
-    });
-};
-
-
 //Entrypoint
 $('#startGame').click(function () {
     var oneMinute = 60 * 1,

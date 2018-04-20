@@ -19,6 +19,11 @@ app.use(express.static('client'));
 server.listen(port, function () {  // Starts server with our modfied port settings
 });
 
+app.use("/client", express.static(__dirname + '/client'));
+app.all('/', function (req, res) {
+	res.sendFile(path.join(__dirname, '/client', 'index.html'));
+});
+
 app.get('/Message', function (req, res) {
 
 	var content = fs.readFileSync("seriousTweets.json");
@@ -43,10 +48,7 @@ app.get('/Message', function (req, res) {
 	});
 });
 
-app.use("/client", express.static(__dirname + '/client'));
-app.all('/', function (req, res) {
-	res.sendFile(path.join(__dirname, '/client', 'index.html'));
-});
+
 
 
 function getRandomIntInclusive(min, max) {
