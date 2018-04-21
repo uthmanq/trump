@@ -114,9 +114,16 @@ function startGame(duration, display) {
 function addPoint() {
     gameScore++;
     $('.score').text(gameScore);
+    var highScore = getCookie("highscore");
+    if (gameScore >= highScore) {
+        setCookie("highscore", gameScore);
+    }
+    $('.highScore').text(getCookie("highscore").toString());
+
 }
 
 function endGame(endType) {
+    checkHighScore();
     $('#modalTitle').text(endType);
     gameOn = false;
     $("#endGameModal").modal({ show: true });
@@ -130,4 +137,29 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 }
 
-exports.gameScore = gameScore;
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkHighScore() {
+    var highScore = getCookie("highscore");
+    if (highScore == "") {
+        alert("High score is not set");
+        setCookie("highscore", "0");
+    }
+}
