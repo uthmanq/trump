@@ -48,7 +48,7 @@
     width: 435px;
     margin: auto;
 }
-@media(max-width:480px){
+@media(max-width:600px){
     .modal-dialog {
         top: 15% !important;
         width: 300px;
@@ -56,13 +56,25 @@
     }
 }
 .background-image {
-    background-image: url("/client/trumpBanner.png");
+    background-image: url("/client/TrumpBannerMobile.png");
     background-size: cover;
     padding-top: 13%;
     padding-bottom: 13%;
     width: 100%;
     margin: 0 !important;
 }
+
+@media(min-width:600px){
+    .modal-dialog {
+        top: 15% !important;
+        width: 300px;
+        margin: auto;
+    }
+    .background-image{
+        background-image: url("/client/trumpBanner.png");
+    }
+}
+
 .no-padding {
     padding-left: 0 !important;
     padding-right: 0 !important;

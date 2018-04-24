@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="/client/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="/client/favicon.png" type="image/x-icon">
-    <script src="/client/share.js"></script>
     <title>Trump vs. Drumpf</title>
 </head>
 
@@ -44,7 +43,14 @@
         </div>
     </div>
     <div class="wrapper container">
-        <div class="row">
+        <div class = "row" id="instructions">
+            <div class="col-md-12 text-center">
+                <h3>When you press start, you will be given 2 tweets at a time. One is fake and one is real.</h3>
+                <h3>Pick the <b>real</b> tweet. You have 1 minute to choose as many <b>real Trump tweets</b> as you can.</h3>
+                <h4>The game will end either if you choose a fake tweet or if your time runs out.</h4>
+            </div>
+        </div>
+        <div class="row" id="tweetBoxes" style="display: none;">
             <div class="col-md-6">
                 <div class="well well-sm" id="leftSide">
                     <img class="img-responsive wellImage" src="/client/trumpHeader.PNG" alt="Chania">

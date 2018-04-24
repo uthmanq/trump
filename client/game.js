@@ -2,10 +2,15 @@ var rightIsReal;
 var gameOn = false;
 var timerInterval;
 var gameScore = 0;
-
+var hasTutorial = false;
 
 //Entrypoint
 $('#startGame').click(function () {
+    if (!hasTutorial) {
+        $('#instructions').css('display', 'none');
+        $('#tweetBoxes').css('display', 'block');
+
+    }
     var oneMinute = 60 * 1,
         display = $('#time');
     $('#startGameText').text("Restart");
@@ -159,7 +164,6 @@ function getCookie(cname) {
 function checkHighScore() {
     var highScore = getCookie("highscore");
     if (highScore == "") {
-        alert("High score is not set");
         setCookie("highscore", "0");
     }
 }
