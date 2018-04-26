@@ -15,9 +15,9 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-$('#facebookClick').click(function () { 
+$('#facebookClick').click(function () {
     var highScore = getCookie("highscore");
-    var shareQuote = "My high score is " + highScore + "! What is your Trump IQ?"
+    var shareQuote = "My high score is " + highScore + " points! How high is your Trump IQ?";
     FB.ui(
         {
             method: 'share',
@@ -25,3 +25,11 @@ $('#facebookClick').click(function () {
             quote: shareQuote
         }, function (response) { });
 });
+$('#twitterClick').click(function () {
+    var highScore = getCookie("highscore");
+    var url = "https://twitter.com/intent/tweet";
+    var text = "My high score is " + highScore + " points! How high is your Trump IQ? \n mrpresident.io";
+    window.open(url+"?text="+ text,"",width=100,height=100);
+});
+
+
