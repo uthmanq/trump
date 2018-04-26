@@ -15,11 +15,13 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-$('#facebookClick').click(function () {
-    console.log("button clicked");
+$('#facebookClick').click(function () { 
+    var highScore = getCookie("highscore");
+    var shareQuote = "My high score is " + highScore + "! What is your Trump IQ?"
     FB.ui(
         {
             method: 'share',
-            href: 'http://mrpresident.io'
+            href: 'http://mrpresident.io',
+            quote: shareQuote
         }, function (response) { });
 });
