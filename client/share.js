@@ -1,3 +1,8 @@
+//This is a dump of copy and pasted code from social media websites.
+//SAD
+//I am a parrot of random share button codes found online
+//Lowkey have no idea what's going on on this page
+
 window.fbAsyncInit = function () {
     FB.init({
         appId: '573333563030795',
