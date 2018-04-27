@@ -36,20 +36,17 @@ app.get('/Message', function (req, res) {
 	} else {
 		newText += fullText;
 	}
+	if (newText.lastIndexOf("- Barry") != -1)
+	{
+		newText = newText.substring(0, newText.lastIndexOf("- Barry"));
+	}
 
 	const url = 'https://api.tronalddump.io/random/quote';
 	request(url, function (error, response, body) {
 		var json = JSON.parse(body);
 		var value = json.value;
 		var id = json.quote_id
-		var x = value.indexOf("- Barry");
-		var newFakeText = "";
-		if (value.lastIndexOf("- Barry") != -1) {
-			newFakeText = value.substring(0, value.lastIndexOf("- Barry"));
-		} else {
-			newFakeText += value;
-		}
-		res.send(JSON.stringify({ right: newText, wrong: newFakeText }));
+		res.send(JSON.stringify({ right: newText, wrong: value }));
 		//someone needs to fix these variable names LOL
 	});
 });

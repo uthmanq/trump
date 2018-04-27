@@ -30,9 +30,7 @@ function getInformation() {
     $.get("/Message", function (data) {
     })
         .done(function (data) {
-            console.log(typeof (data));
             var x = JSON.parse(data);
-            console.log(typeof (x));
             //Paints screen
             refreshScreen(x)
         })
