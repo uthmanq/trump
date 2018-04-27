@@ -42,8 +42,14 @@ app.get('/Message', function (req, res) {
 		var json = JSON.parse(body);
 		var value = json.value;
 		var id = json.quote_id
-
-		res.send(JSON.stringify({ right: newText, wrong: value }));
+		var x = value.indexOf("- Barry");
+		var newFakeText = "";
+		if (value.lastIndexOf("- Barry") != -1) {
+			newFakeText = value.substring(0, value.lastIndexOf("- Barry"));
+		} else {
+			newFakeText += value;
+		}
+		res.send(JSON.stringify({ right: newText, wrong: newFakeText }));
 		//someone needs to fix these variable names LOL
 	});
 });
