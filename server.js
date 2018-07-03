@@ -7,6 +7,10 @@ var Http = require('http');
 var fs = require('fs');
 var compression = require('compression');
 var helmet = require('helmet');
+var twilio = require('twilio');
+
+var twilioClient = new twilio('AC2b409be51b1720d6ac8ef8206e3d5c5f', '0b340031c65e610c60b99ae11eb24f2c');
+
 
 //intialize server
 var app = express();
@@ -58,5 +62,37 @@ function getRandomIntInclusive(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
+
+app.get('/custommessage', function (req, res) {
+    sendAlert(req.query.phone, req.query.message);
+    res.send("HELLO");
+  })
+
+function sendAlert (phone, bodyMessage)
+{
+    var adjustedPhone = '+1' + phone;
+    twilioClient.messages.create({
+    to:adjustedPhone,
+    from:'+16098314899',
+    body:bodyMessage
+}, function(error, message) {
+    // The HTTP request to Twilio will run asynchronously. This callback
+    // function will be called when a response is received from Twilio
+    // The "error" variable will contain error information, if any.
+    // If the request was successful, this value will be "false"
+    if (!error) {
+        // The second argument to the callback will contain the information
+        // sent back by Twilio for the request. In this case, it is the
+        // information about the text messsage you just sent:
+        console.log('Success! The SID for this SMS message is:');
+        console.log(message.sid);
+ 
+        console.log('Message sent on:');
+        console.log(message.dateCreated);
+    } else {
+        console.log('Oops! There was an error.');
+    }
+});
 }
 
