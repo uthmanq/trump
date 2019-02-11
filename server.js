@@ -1,15 +1,14 @@
-var request = require('request');
-var Twitter = require('twitter');
-var port = process.env.PORT || 8000;
-var express = require('express');
-var path = require('path');
-var Http = require('http');
-var fs = require('fs');
-var compression = require('compression');
-var helmet = require('helmet');
-var twilio = require('twilio');
-
-var twilioClient = new twilio('AC2b409be51b1720d6ac8ef8206e3d5c5f', '0b340031c65e610c60b99ae11eb24f2c');
+const request = require('request');
+const Twitter = require('twitter');
+const port = process.env.PORT || 8000;
+const express = require('express');
+const path = require('path');
+const Http = require('http');
+const fs = require('fs');
+const compression = require('compression');
+const helmet = require('helmet');
+const twilio = require('twilio');
+const twilioClient = new twilio('AC2b409be51b1720d6ac8ef8206e3d5c5f', '0b340031c65e610c60b99ae11eb24f2c');
 
 
 //intialize server
